@@ -1,0 +1,45 @@
+.search-list hr {
+    margin: 15px 0 15px 0;
+}
+
+.searchbar-section {
+    padding-bottom: 0;
+}
+
+.searchbar {
+    display: flex;
+}
+
+.searchbar-input {
+    width: 88%;
+    height: 40px;
+    background: #e8e8e8;
+    border: 1px gray solid;
+    border-radius: 15px;
+}
+
+.search-button {
+    background: transparent;
+    border: 0;
+}
+
+.search-button img{
+    width: 30px;
+    height: 30px;
+}
+
+.search-card {
+    display: flex;
+    cursor: pointer;
+}
+
+.search-list .search-card img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.search-list .search-card p {
+    font-weight: bold;
+    margin-left: 20px;
+}
