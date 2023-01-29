@@ -21,10 +21,14 @@ include "header.php";
                 $result = mysqli_fetch_assoc($sql);
             }
 
+            $_SESSION['result_chat'] = $result['usersUniqueId'];
+
+//            global $result_chat;
+//            $result_chat = $result['usersUniqueId'];
             ?>
 
             <a href="messages.php" class="back-icon"> <i class="fas fa-arrow-left"></i></a>
-            <a href="#" class="chat-profile" style="display: flex">
+            <a href="user-profile.php?user_id=<?php echo $result['usersUniqueId']?>" class="chat-profile" style="display: flex">
                 <img src="../images/uploaded-profile-photos/<?php echo $result['usersProfilePhoto'] ?>" alt="">
                 <div class="details">
                     <span> <?php echo $result['usersFirstName'] . " " . $result['usersLastName'] ?> </span>

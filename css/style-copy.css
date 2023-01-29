@@ -189,13 +189,13 @@ body .display-test{
 .chat-area header{
     display: flex;
     align-items: center;
-    padding: 18px 30px;
+    padding: 12px 20px 15px 20px;
 }
 
 
 
 .chat-area header .back-icon{
-    font-size: 18px;
+    font-size: 25px;
     color: #333;
 }
 
@@ -545,6 +545,15 @@ section {
 .profile-details {
     float: none;
     text-align: center;
+}
+
+.profile-details .back-icon{
+    font-size: 25px;
+    color: #333;
+    display: flex;
+    position: absolute;
+    /* left: 350px; */
+    padding: 23px 20px 15px 20px;
 }
 
 .profile-details  img {
