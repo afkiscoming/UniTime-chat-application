@@ -1,4 +1,4 @@
-const signupButton = document.getElementById("update-button");
+const updateButton = document.getElementById("update-button");
 const errorText = document.getElementById("error-txt");
 const form = document.querySelector(".edit form");
 
@@ -6,7 +6,7 @@ form.onsubmit = (e)=>{
     e.preventDefault();
 }
 
-signupButton.onclick = ()=>{
+updateButton.onclick = ()=>{
     //AJAX
     let xhr = new XMLHttpRequest();    //creating XML object
     xhr.open("POST", "edit-code.php", true)

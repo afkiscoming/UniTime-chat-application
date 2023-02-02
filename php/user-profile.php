@@ -15,28 +15,28 @@ include "header.php";
     <section class="profile-details-section">
         <div class="container">
 
-<!--            --><?php
-//            include "config.php";
-//            $sql = mysqli_query($conn, "SELECT * FROM users WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
-//            if(mysqli_num_rows($sql) > 0)
-//            {
-//                $row = mysqli_fetch_assoc($sql);
-//            }
-//            ?>
-
             <?php
-            $outgoing_id2 = $_SESSION['usersUniqueId'];
-            $sql2 = mysqli_query($conn, "SELECT * FROM users WHERE NOT usersUniqueId = {$outgoing_id2}");
-            $row  = mysqli_fetch_assoc($sql2);
-
-            $resut_chat = $_SESSION['result_chat'];
-
-            $sql = mysqli_query($conn, "SELECT * FROM users WHERE usersUniqueId = {$resut_chat}");
+            include "config.php";
+            $sql = mysqli_query($conn, "SELECT * FROM users WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
             if(mysqli_num_rows($sql) > 0)
             {
                 $row = mysqli_fetch_assoc($sql);
             }
             ?>
+
+<!--            --><?php
+//            $outgoing_id2 = $_SESSION['usersUniqueId'];
+//            $sql2 = mysqli_query($conn, "SELECT * FROM users WHERE NOT usersUniqueId = {$outgoing_id2}");
+//            $row  = mysqli_fetch_assoc($sql2);
+//
+//            $resut_chat = $_SESSION['result_chat'];
+//
+//            $sql = mysqli_query($conn, "SELECT * FROM users WHERE usersUniqueId = {$resut_chat}");
+//            if(mysqli_num_rows($sql) > 0)
+//            {
+//                $row = mysqli_fetch_assoc($sql);
+//            }
+//            ?>
 
 
 
@@ -53,17 +53,7 @@ include "header.php";
 
             <div class="profile-details">
 
-                <?php
-                if ($resut_chat != $_SESSION['usersUniqueId'])
-                {
-                    echo '<a href="chat.php?user_id=<?php echo $resut_chat?>" class="back-icon"> <i class="fas fa-arrow-left"></i></a>';
-                }
-                else
-                {
-                    echo '<a href="chat.php?user_id=<?php echo $resut_chat?>" class="back-icon" style="display: none"> <i class="fas fa-arrow-left"></i></a>';
-                }
-                ?>
-                <a href="chat.php?user_id=<?php echo $resut_chat?>" class="back-icon"> <i class="fas fa-arrow-left"></i></a>
+                <a href="messages.php" class="back-icon"> <i class="fas fa-arrow-left"></i></a>
 
                 <img src="../images/uploaded-profile-photos/<?php echo $row['usersProfilePhoto'] ?>" alt="">
                 <h2>@<?php echo $row['usersUsername'] ?> </h2>
@@ -76,16 +66,8 @@ include "header.php";
 
                 <hr class="profile-hr">
 
-                <?php
-                if ($resut_chat != $_SESSION['usersUniqueId'])
-                {
-                    echo '<button id="edit-profile" class="edit-profile" formaction="../php/profile-edit.php" style="display: none"> Edit Profile </button>';
-                }
-                else
-                {
-                    echo '<button id="edit-profile" class="edit-profile" formaction="../php/profile-edit.php"> Edit Profile </button>';
-                }
-                ?>
+                <button id="edit-profile" class="edit-profile" > <a href="profile-edit.php"> Edit Profile</a>  </button>
+
 
 
 <!--                <div class="profile-follow-infos">-->

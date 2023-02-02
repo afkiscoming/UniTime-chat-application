@@ -28,7 +28,7 @@ include "header.php";
             ?>
 
             <a href="messages.php" class="back-icon"> <i class="fas fa-arrow-left"></i></a>
-            <a href="user-profile.php?user_id=<?php echo $result['usersUniqueId']?>" class="chat-profile" style="display: flex">
+            <a href="users-profile.php?user_id=<?php echo $result['usersUniqueId']?>" class="chat-profile" style="display: flex">
                 <img src="../images/uploaded-profile-photos/<?php echo $result['usersProfilePhoto'] ?>" alt="">
                 <div class="details">
                     <span> <?php echo $result['usersFirstName'] . " " . $result['usersLastName'] ?> </span>

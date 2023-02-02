@@ -25,7 +25,7 @@
 
     <div class="navbar">
         <div class="container">
-            <img id="mobile-cta" class="mobile-menu" src="../images/chevron-left.svg" alt="Open Navigation">
+<!--            <img id="mobile-cta" class="mobile-menu" src="../images/chevron-left.svg" alt="Open Navigation">-->
 
             <a href="index.php" class="logo-holder" >
                 <img style="width: 40px; height: 40px; position: fixed; left: 0; right: 0"
@@ -36,7 +36,7 @@
                     <li> <a href="signup.php">Sign Up</a> </li> &nbsp;
                     <li> <a href="signup2.php">Sign Up2</a> </li> &nbsp;
                     <li> <a href="Login.php"> Login</a> </li> &nbsp;
-                    <li> <a href="logout.php">Logout</a> </li> &nbsp;
+                    <li> <a href="logout.php" class="logout">Logout</a> </li> &nbsp;
                 </ul>
             </nav>
         </div>

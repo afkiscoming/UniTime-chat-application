@@ -13,16 +13,14 @@ $last_name = mysqli_real_escape_string($conn, $_POST['last-name']);
 $username = mysqli_real_escape_string($conn, $_POST['username']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
+$about = mysqli_real_escape_string($conn, $_POST['about']);
 
 $passwordCheck = False;
 
-
-
-$sql = mysqli_query($conn, "SELECT * FROM users WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
-if (mysqli_num_rows($sql) > 0) {
-    $row = mysqli_fetch_assoc($sql);
-}
-
+//$sql = mysqli_query($conn, "SELECT * FROM users WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
+//if (mysqli_num_rows($sql) > 0) {
+//    $row = mysqli_fetch_assoc($sql);
+//}
 
 
 if(!empty($first_name) && !empty($last_name) && !empty($username) && !empty($email)) {
@@ -71,19 +69,22 @@ if(!empty($first_name) && !empty($last_name) && !empty($username) && !empty($ema
 
                                 if ($passwordCheck) {
                                     if (strlen($password) >= 6) {
-                                        $sql_update_data = mysqli_query($conn, "UPDATE users SET usersFirstName = {'$first_name'}, usersLastName = {'$last_name'}, 
-                                                                                            usersUsername = {'$username'}, usersEmail = {'$email'}, usersPassword = {'$password'},
-                                                                                            usersProfilePhoto = {'$new_img_name'}
-                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
+                                        $sql = "UPDATE users SET usersFirstName = '{$first_name}', usersLastName = '{$last_name}', 
+                                                                                            usersUsername = '{$username}', usersEmail = '{$email}', usersPassword = '{$password}',
+                                                                                            usersProfilePhoto = '{$new_img_name}', usersAbout = '{$about}'
+                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}";
+
+                                        $sql_update_data = mysqli_query($conn, $sql);
                                         echo "success";
                                     } else {
                                         echo "Password should be longer than 6 characters!";
                                     }
                                 } else {
-                                    $sql_update_no_pass_data = mysqli_query($conn, "UPDATE users SET usersFirstName = {'$first_name'}, usersLastName = {'$last_name'}, 
-                                                                                            usersUsername = {'$username'}, usersEmail = {'$email'},
-                                                                                            usersProfilePhoto = {'$new_img_name'}
-                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
+                                    $sql = "UPDATE users SET usersFirstName = '{$first_name}', usersLastName = '{$last_name}', 
+                                                                                            usersUsername = '{$username}', usersEmail = '{$email}',
+                                                                                            usersProfilePhoto = '{$new_img_name}', usersAbout = '{$about}'
+                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}";
+                                    $sql_update_no_pass_data = mysqli_query($conn,$sql );
                                     echo "success";
                                 }
                             }
@@ -99,18 +100,21 @@ if(!empty($first_name) && !empty($last_name) && !empty($username) && !empty($ema
 
                     if ($passwordCheck) {
                         if (strlen($password) >= 6) {
-                            $sql_update_no_img_data = mysqli_query($conn, "UPDATE users SET usersFirstName = {'$first_name'}, usersLastName = {'$last_name'}, 
-                                                                                            usersUsername = {'$username'}, usersEmail = {'$email'}, usersPassword = {'$password'},
-                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
+                            $sql = "UPDATE users SET usersFirstName = '{$first_name}', usersLastName = '{$last_name}', usersAbout = '{$about}',
+                                                                                            usersUsername = '{$username}', usersEmail = '{$email}', usersPassword = '{$password}'
+                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}";
+                            $sql_update_no_img_data = mysqli_query($conn, $sql);
+
                             echo "success";
                         } else {
                             echo "Password should be longer than 6 characters!";
                         }
                     } else {
+                        $sql ="UPDATE users SET usersFirstName = '{$first_name}', usersLastName = '{$last_name}', usersAbout = '{$about}',
+                                                                                            usersUsername = '{$username}', usersEmail = '{$email}'       
+                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}";
+                        $sql_update_no_pass_and_img_data = mysqli_query($conn,$sql );
 
-                        $sql_update_no_pass_and_img_data = mysqli_query($conn, "UPDATE users SET usersFirstName = {'$first_name'}, usersLastName = {'$last_name'}, 
-                                                                                            usersUsername = {'$username'}, usersEmail = {'$email'},       
-                                                                                            WHERE usersUniqueId = {$_SESSION['usersUniqueId']}");
                         echo "success";
                     }
                 }

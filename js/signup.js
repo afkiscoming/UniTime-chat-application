@@ -16,7 +16,7 @@ signupButton.onclick = ()=>{
                 let data = xhr.response;
                 if(data === "success")
                 {
-                    location.href = "users-in-messages.php";
+                    location.href = "messages.php";
                 }
                 else
                 {
