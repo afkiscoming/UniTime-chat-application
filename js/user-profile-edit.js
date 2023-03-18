@@ -1,26 +1,22 @@
-const loginButton = document.getElementById("login-button");
+const updateButton = document.getElementById("update-button");
 const errorText = document.getElementById("error-txt");
-const form = document.querySelector(".login form");
+const form = document.querySelector(".form-edit form");
 
 form.onsubmit = (e)=>{
     e.preventDefault();
 }
 
-loginButton.onclick = ()=>{
+updateButton.onclick = ()=>{
     //AJAX
     let xhr = new XMLHttpRequest();    //creating XML object
-    xhr.open("POST", "login-code.php", true)
+    xhr.open("POST", "user-profile-edit-code.php", true)
     xhr.onload = ()=> {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
                 let data = xhr.response;
                 if(data === "success")
                 {
-                    location.href = "messages.php";
-                }
-                else if(data === "admin")
-                {
-                    location.href = "admin.php";
+                    location.href = "user-profile.php";
                 }
                 else
                 {

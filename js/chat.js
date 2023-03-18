@@ -11,7 +11,7 @@ inputField.focus();
 
 sendButton.onclick = ()=>{
     //AJAX
-    let xhr = new XMLHttpRequest();    //creating XML object
+    let xhr = new XMLHttpRequest();     //creating XML object
     xhr.open("POST", "insert-chat.php", true)
     xhr.onload = ()=> {
         if(xhr.readyState === XMLHttpRequest.DONE){
@@ -22,8 +22,8 @@ sendButton.onclick = ()=>{
         }
     }
     //we have to send data from form trough ajax to php
-    let formData = new FormData(form);  //creating new formData object
-    xhr.send(formData);                 //sending form data to php
+    let formData = new FormData(form);
+    xhr.send(formData);
 }
 
 chatBox.onmouseenter = ()=>{
@@ -35,7 +35,7 @@ chatBox.onmouseleave = ()=>{
 }
 
 setInterval(()=>{
-//AJAX
+    //AJAX
     let xhr = new XMLHttpRequest();    //creating XML object
     xhr.open("POST", "get-chat.php", true);
     xhr.onload = ()=> {
@@ -50,8 +50,8 @@ setInterval(()=>{
         }
     }
     //we have to send data from form trough ajax to php
-    let formData = new FormData(form);  //creating new formData object
-    xhr.send(formData);                 //sending form data to php
+    let formData = new FormData(form);
+    xhr.send(formData);
 
 }, 500);    //this function will run frequently after 500ms
 

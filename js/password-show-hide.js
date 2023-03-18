@@ -13,4 +13,3 @@ toggleButton.onclick = ()=>{
         toggleButton.style.color = "#ccc";
     }
 }
-
